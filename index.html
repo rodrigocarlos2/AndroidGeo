@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+</head>
+
+<body>
+
+  <p id="lat"> </p>
+  <p id="lon"> </p>
+
+  <script>
+
+  window.onload = function (){
+    document.addEventListener("deviceready",init,false);
+    document.addEventListener("deviceready", onDeviceReady, false);
+  }
+
+  function onDeviceReady(){
+  }
+
+  function init(){
+    navigator.geolocation.getCurrentPosition(positionSuccess,positionError);
+  }
+
+  function positionSuccess(position){
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    document.getElementById('lat').value = latitude;
+    document.getElementById('lon').value = longitude;
+  }
+
+  function positionError(error){
+    alert(error.message);
+  }
+
+  </script>
+
+</body>
+
+</html>
